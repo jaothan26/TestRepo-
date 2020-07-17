@@ -1,24 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage("build") {
-            tools {
-                maven 'Maven'
-            }
+        stage('Example') {
             steps {
-                echo 'building the application...'
-                sh "mvn install"
+                echo 'Hello World'
             }
         }
-         stage("test") {
-            steps {
-                echo 'testing the application...'
-            }
-        }
-         stage("deploy") {
-            steps {
-                echo 'deploying the application...'
-            }
+    }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
         }
     }
 }
